@@ -17,8 +17,8 @@ print("Real Madrid, Arsenal, Chelsea, Bayern Munchen")
  
  #Dans cette parti, je donne de l'info au user a propos de l'équipe qui a été choisi 
 choix = input().lower()
-
-if choix == r: 
+#pour n'importe quelle equipe que le user choisi, il va avoir une courte description de comment l'équipe fait dans le ligue.
+if choix == r:                       
     print("L'équipe que vous avez choisi ne joue pas a leur meilleur maintenant, ils sont 4e dans leur ligue.")
 
 elif choix == a:
@@ -39,8 +39,12 @@ print("Est-ce que votre équipe preferer est parmi ces choix? Si oui, enter le n
 
 user_input = input().lower()
 
+#si le user dit non, le programme vas retourner le message dans le paranthèse
+
 if user_input == non:
     print("ok, à la prochaine!!")
+
+  #si le user decide de choisir un équipe, le programme va ensuite le demander une question specifique a propos de l'équipe pour voir s'il est un vrai fan.
 
 elif user_input == r:
     print("Excellent! N'arrêtez pas de les soutenir s'ils vont en Europa League cette saison.")
@@ -85,12 +89,11 @@ elif user_input == b:
 
     if user_input == lewa:
         print("Excellent!!!")
-    else:
-        print("Je ne pense pas... La bonne réponce est 2014")
-
-else:
+    else:                                                           #le else ici est pour le elif de user_input == b:
+        print("Je ne pense pas... La bonne réponce est 2014") 
+else:                                                               #le else ici sert a retourner "uh oh..." si le user decide d'ecrire se qu'il veut et pas ce qui est demander
     print("Uh oh...")
 
-print("Merci d'avoir participer a mon petit quiz!!!")    
+print("Merci d'avoir participer a mon petit quiz!!!")               #le print ici est pour que le user sait que ceci est la fin du quiz/questionnaire
 
 #Le but etait d'interacter avec le user et savoir quelle est sont équipe preferer parmis les choix et le tester pour voir s'il est un vrai fan.
