@@ -25,10 +25,10 @@ elif choix == a:
     print("Cette équipe en 2003/2004 etait imbattable, ils sont 14e dans leur ligue.")
 
 elif choix == c:
-    print("L'équipe choisie s'est renforcée au cours de l'été grâce à tous les joueurs qui sont venus.")
+    print("L'équipe choisie s'est renforcée au cours de l'été grâce à tous les joueurs qui sont venus. Ils sont 3e dans leur ligue.")
 
 elif choix == b:
-    print("Cette équipe vien de gagner le UEFA Champions League et sont maintenant sans doute la meilleure équipe du monde.")
+    print("Cette équipe vien de gagner le UEFA Champions League et sont maintenant sans doute la meilleure équipe dans leur ligue et même au monde.")
 
 else:
     print("Je n'ai pas compris")    
