@@ -1,12 +1,11 @@
-# une programme while et for
+# Cela est un programme qui utilise des "while" et des "for" pour te demander des questions.
 # par Joseph Makhol   makjos02@ecolecatholique.ca
 
+print("parmi les nombres, choisie un que tu aimerais multiplier par 2")
 x = 1
 while x < 11:
   print(x)
   x += 1
-
-print("parmi les nombres, choisie un que tu aimerais multiplier par 2")
 
 user_input = float(input())
 if user_input < 11:
@@ -32,8 +31,8 @@ while True:
   end = input().lower()
   if end == "non":
     break
-  else:  
-    print("CALCULE MENTAL... 5+5 est...")
+  elif end == "oui":  
+    print("CALCULE MENTAL: 5+5 est...")
     ansr = int(input())
     if ansr == 10:
       print("YAY!!!")
