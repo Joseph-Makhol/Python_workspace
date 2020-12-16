@@ -30,7 +30,7 @@ def mon_mad_lib():
     consignes.append("Verbe à l'infinitif")
     phrases.append("Il y a plusieurs {} facon de demander de faire ma collation tous seul.")
     consignes.append("Adjectif")
-        phrases.append("mon père n'est pas come d'autre {}.")
+    phrases.append("mon père n'est pas come d'autre {}.")
     consignes.append("nom commun")
     phrases.append("Il se fache tres {}.")
     consignes.append("Adverbe")
