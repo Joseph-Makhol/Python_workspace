@@ -25,7 +25,7 @@ for i in range(2, 4, 6):
     print (liste)
     choix2 = int(input())
     if choix2 == 2:
-        print("okay")
+        print("Okay!")
 
     if choix2 == 4:
         print("WOW!")
