@@ -12,51 +12,86 @@ BLACK = (0,0,0)
 
 ship = Actor("galaga")
 ship.pos = (WIDTH/2 , 750)
-
+ship.dead = False
+ship.countdown = 90
 
 bullets = []
 
+
 bugs = []
 
-bugs.append(Actor('bugs'))
-bugs[-1].x = random.randint(40,WIDTH-40)
-bugs[-1].y = -50
+
+for x in range(8):
+    for y in range(4):
+        bugs.append(Actor('bugs'))
+        bugs[-1].x = 100 + 90*x
+        bugs[-1].y = 80 + 80*y
+    
+
+score = 0
+direction = 1
+
+def drawScore():
+    screen.draw.text(str(score),(50,30))
+
 
 def on_key_down(key):
-    if key == keys.SPACE:
-        bullets.append(Actor('bullets'))
-        bullets[-1].x = ship.x
-        bullets[-1].y = ship.y-40
+    if ship.dead == False:
+        if key == keys.SPACE:
+            bullets.append(Actor('bullets'))
+            bullets[-1].x = ship.x
+            bullets[-1].y = ship.y-40
     
     
 def update():
-    if keyboard.left:
-        ship.x -= 75
-    elif keyboard.right:
-        ship.x += 75
+    global score
+    global direction
+    
+    if ship.dead == False:
+        if keyboard.left:
+            ship.x -= 50
+        elif keyboard.right:
+            ship.x += 50
 
     for bullet in bullets:
         if bullet.y < -20:
             bullets.remove(bullet)
         else:    
             bullet.y -= 30
-          
+    moveDown = False
+    if len(bugs)>0 and (bugs[-1].x > WIDTH-80 or bugs [0].x < 50):
+        moveDown = True
+        direction = direction*-1
     for bug in bugs:
-        bug.y += 15
-        if bug.y > HEIGHT + 60:
-            bug.y = -100
-            bug.x = random.randint(40,WIDTH-40)
-
-           
+        bug.x += 15*direction
+        if moveDown == True:
+            bug.y += 50
+        for bullet in bullets:
+            if bug.colliderect(bullet):
+                score += 150
+                bullets.remove(bullet)
+                bugs.remove(bug)
+        if bug.colliderect(ship):
+             ship.dead = True
+      
+    if ship.dead:
+         ship.countdown -= 1
+    if ship.countdown == 0:
+         ship.dead = False
+         ship.countdown = 90
+         
 def draw():
     screen.clear()
     screen.fill(BLACK)
-    ship.draw()
+    
+    
     for bullet in bullets:
         bullet.draw()
     for bug in bugs:
         bug.draw()
+    if ship.dead == False:
+        ship.draw()
+    drawScore()
         
 
 pgzrun.go()
-"""https://www.youtube.com/watch?v=9xTiifL05GI"""
